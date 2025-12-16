@@ -1,6 +1,11 @@
 // Utility to format a byte size into a human-readable string (KB, MB, GB)
 // Uses binary units (1 KB = 1024 bytes) and rounds to 0–2 decimals depending on magnitude.
+import {twMerge} from "tailwind-merge";
+import clsx, {type ClassValue} from "clsx";
 
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))  // 'inputs' now contains all arguments
+}
 export function formatSize(bytes: number): string {
   if (!isFinite(bytes) || bytes <= 0) return "0 KB";
 
